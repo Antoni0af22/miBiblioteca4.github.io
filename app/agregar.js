@@ -1,4 +1,19 @@
-  import{saveLibro} from './app/firebase.js'
+import {
+    getFirestore,
+    collection,
+    addDoc,
+  } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  
+  /**
+   * Save a New Task in Firestore
+   * @param {string} titulo 
+   * @param {string} autor 
+   * @param {string} editorial
+   * @param {string} isbn
+   * @param {Date} fecha
+   */
+  export const saveLibro = (titulo, autor, editorial, isbn, fecha) =>
+    addDoc(collection(db, "libros"), { titulo, autor, editorial, isbn, fecha });
   
   const librosForm = document.getElementById("libros-form");
   
